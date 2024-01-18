@@ -765,7 +765,7 @@ public class RngCrystalScript : MonoBehaviour
     }
 
 #pragma warning disable 414
-    private string TwitchHelpMessage = "'!{0} toss' to give it a go. '!{0} switch' to go to the submission state. '!{0} Heads/Tails' to enter Heads or Tails. '!{0} collect' to get the crystal when it shows up. Good luck!";
+    private string TwitchHelpMessage = "'!{0} toss' to give it a go. '!{0} switch' to go to the submission state. '!{0} heads/tails' to enter heads or tails. '!{0} collect' to get the crystal when it shows up. Good luck!";
 #pragma warning restore 414
     IEnumerator ProcessTwitchCommand(string command)
     {
@@ -777,7 +777,7 @@ public class RngCrystalScript : MonoBehaviour
             KMSelectable moduleSelectable = _module.GetComponent<KMSelectable>();
             moduleSelectable.OnFocus();
             _selectable.OnInteract();
-            while (_status != ModuleStatus.Charged)
+            while (_status != ModuleStatus.Charged && _status != ModuleStatus.AltCharged)
             {
                 yield return null;
             }
